@@ -1,0 +1,21 @@
+{
+  "name": "practice-01",
+  "version": "1.0.0",
+  "description": "Node.js Guide",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "start-server": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vkpvivek/Node.js-practice-01.git"
+  },
+  "author": "vivek pal",
+  "license": "ISC",
+  "homepage": "https://github.com/vkpvivek/Node.js-practice-01#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
