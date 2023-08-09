@@ -1,14 +1,13 @@
 const path=require('path');
 const express=require('express');
 
+const productController=require('../controllers/products');
+
 const router=express.Router();
 
 //middleware
-router.get('/',(req,res,next)=>{
-    res.sendFile(path.join(__dirname,'../','views','shop.html'));
-    //res.send("<h1>Final page</h1>");
-});
-
+//routes ==> /shop/ (GET)
+router.get('/',productController.getProducts);
 
 //export the shopRoutes
 module.exports=router;

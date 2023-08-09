@@ -2,6 +2,9 @@ const path=require('path');
 const express =require('express');
 const parseBody=require('body-parser');
 
+//import controllers
+const errorController=require('./controllers/error');
+
 const app=express();
 
 //import from routes
@@ -17,10 +20,7 @@ app.use('/admin',adminRoutes);
 app.use('/shop',shopRoutes);
 app.use(contactRoutes);
 
-
-app.use((req,res,next)=>{
-    res.status(404).sendFile(path.join(__dirname,'views','404.html'));
-    //res.status(404).sendFile("<h1>!!Page Not Found<h1>!!");
-});
+//middleware-->  routes for error page
+app.use(errorController.get404);
 
 app.listen(4000);
