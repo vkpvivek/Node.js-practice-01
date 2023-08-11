@@ -1,5 +1,5 @@
 const path=require('path');
-
+const Product=require('../models/product');
 
 exports.getAddProduct = (req,res,next)=>{
     console.log("i am in add-product middleware");
@@ -8,12 +8,19 @@ exports.getAddProduct = (req,res,next)=>{
 };
 
 exports.postAddProduct = (req,res,next)=>{
-    console.log(req.body);
+    //console.log(req.body);
+    const product=new Product(req.body.title);
+    product.save();
     console.log("in product-page");
     res.redirect('/shop/');
 };
 
 exports.getProducts=(req,res,next)=>{
-    res.sendFile(path.join(__dirname,'../','views','shop.html'));
-    //res.send("<h1>Final page</h1>");
+    //const products=Product.fetchAll();
+    Product.fetchAll((products)=>{
+        console.log("in //getProduct");
+        console.log(products);
+        res.sendFile(path.join(__dirname,'../','views','shop.html'));
+        //res.send("<h1>Final page</h1>");
+    });
 };
